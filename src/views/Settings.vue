@@ -4,6 +4,11 @@
 
 <script>
 export default {
-  name: "Home",
+  name: "Settings",
+  data() {
+    return {};
+  },
 };
 </script>
+
+<style lang="scss" scoped></style>
