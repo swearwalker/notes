@@ -1,3 +1,11 @@
+* {
+  outline: none!important;
+}
+
+main {
+  @apply pt-24 min-h-screen w-full;
+}
+
 .container {
   @apply mx-auto px-4;
 }

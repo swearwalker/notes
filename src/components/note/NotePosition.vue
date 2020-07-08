@@ -1,20 +1,25 @@
 <template>
-  <li class="note-item">
-    <h2 class="note-item__name">{{ data.name }}</h2>
-    <p class="note-item__content">{{ data.content }}</p>
-    <div class="note-item__actions actions">
-      <div class="actions__badge">
-        <span class="actions__quantity">{{ data.comments.length }}</span>
+  <li class="note-item w-full md:w-1/2 lg:w-1/3 xl:w-1/4 px-2 mb-4">
+    <div class="note-item__container flex flex-col shadow bg-white rounded p-4">
+      <h2 class="note-item__name title mb-4 uppercase text-xl">
+        {{ data.name }}
+      </h2>
+      <p class="note-item__content description mb-2">{{ data.content }}</p>
+      <div class="note-item__actions actions flex items-center justify-between">
+        <div class="actions__badge badge badge-info">
+          <i class="fas fa-comments actions__icon"></i>
+          <span class="actions__quantity ml-2">{{ data.comments.length }}</span>
+        </div>
+        <router-link :to="viewLink" class="actions__btn btn btn-info ml-auto">
+          <i class="fas fa-eye actions__icon"></i>
+        </router-link>
+        <router-link :to="editLink" class="actions__btn btn btn-success ml-2">
+          <i class="fas fa-pen actions__icon"></i>
+        </router-link>
+        <button @click="deleteNote" class="actions__btn btn btn-danger ml-2">
+          <i class="fas fa-trash-alt actions__icon"></i>
+        </button>
       </div>
-      <router-link :to="viewLink" class="actions__btn btn btn-info"
-        >View</router-link
-      >
-      <router-link :to="editLink" class="actions__btn btn btn-success"
-        >Edit</router-link
-      >
-      <button @click="deleteNote" class="actions__btn btn btn-danger">
-        Delete
-      </button>
     </div>
   </li>
 </template>
@@ -69,4 +74,8 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.actions__btn {
+  @apply p-2;
+}
+</style>

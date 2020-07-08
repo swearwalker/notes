@@ -18,6 +18,9 @@ import "vue-toastification/dist/index.css";
 
 import "./assets/styles/components.scss";
 
+import "@fortawesome/fontawesome-free/css/all.css";
+import "@fortawesome/fontawesome-free/js/all.js";
+
 Vue.use(Vuelidate);
 
 Vue.use(VueMoment, {

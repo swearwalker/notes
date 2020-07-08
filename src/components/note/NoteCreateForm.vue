@@ -1,13 +1,17 @@
 <template>
-  <form id="form">
-    <h1 class="form__title">Create Note</h1>
+  <form
+    @submit.prevent="createNote"
+    id="form"
+    class="w-full shadow rounded p-4"
+  >
+    <h1 class="form__title title uppercase text-2xl mb-4">Create Note</h1>
     <div class="form__wrapper">
-      <label for="name" class="form__label">Name</label>
+      <label for="name" class="form__label subtitle mb-1">Name</label>
       <input
         v-model="$v.name.$model"
         id="name"
         type="text"
-        class="form__input field"
+        class="form__input input"
       />
       <span v-if="!$v.name.required" class="form__message form__message-error"
         >Field must be filled!</span
@@ -15,11 +19,11 @@
       <span v-else class="form__message form__message-success">All good!</span>
     </div>
     <div class="form__wrapper">
-      <label for="content" class="form__label">Name</label>
+      <label for="content" class="form__label subtitle mb-1">Content</label>
       <textarea
         v-model="$v.content.$model"
         id="content"
-        class="form__textarea field"
+        class="form__textarea textarea"
       ></textarea>
       <span
         v-if="!$v.content.required"
@@ -28,11 +32,16 @@
       >
       <span v-else class="form__message form__message-success">All good!</span>
     </div>
-    <div class="form__actions actions">
-      <button @click="createNote" class="actions__btn btn btn-success">
+    <div class="form__actions actions w-full flex items-center justify-end">
+      <button
+        type="submit"
+        :class="{ 'btn-disabled': $v.$invalid }"
+        class="actions__btn btn btn-success"
+        :disabled="$v.$invalid"
+      >
         Create
       </button>
-      <button @click="resetForm" class="actions__btn btn btn-danger">
+      <button @click="resetForm" class="actions__btn btn btn-danger ml-2">
         Reset
       </button>
     </div>
@@ -84,4 +93,17 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.form__wrapper {
+  @apply flex flex-col w-full mb-2;
+}
+.form__message {
+  @apply text-sm mb-1;
+}
+.form__message-success {
+  @apply text-green-500;
+}
+.form__message-error {
+  @apply text-red-500;
+}
+</style>

@@ -1,41 +1,51 @@
 <template>
   <div class="note-item">
-    <h1 class="note-item__name">{{ note.name }}</h1>
-    <p class="note-item__content">{{ note.content }}</p>
-    <div class="note-item__actions actions">
-      <div class="actions__badge">
-        <span class="actions__quantity">{{ note.comments.length }}</span>
+    <div class="note-item__container flex flex-col p-4 shadow rounded">
+      <h1 class="note-item__name title mb-4 uppercase text-xl">
+        {{ note.name }}
+      </h1>
+      <p class="note-item__content description mb-2">{{ note.content }}</p>
+      <div
+        class="note-item__actions actions flex items-center justify-between mb-4"
+      >
+        <div class="actions__badge badge badge-info">
+          <i class="fas fa-comments actions__icon"></i>
+          <span class="actions__quantity ml-2">{{ note.comments.length }}</span>
+        </div>
+        <router-link
+          :to="editLink"
+          class="actions__btn btn btn-success ml-auto"
+        >
+          <i class="fas fa-pen actions__icon"></i>
+        </router-link>
+        <button @click="deleteNote" class="actions__btn btn btn-danger ml-2">
+          <i class="fas fa-trash-alt actions__icon"></i>
+        </button>
       </div>
-      <router-link :to="editLink" class="actions__btn btn btn-success"
-        >Edit</router-link
-      >
-      <button @click="deleteNote" class="actions__btn btn btn-danger">
-        Delete
-      </button>
-    </div>
-    <div class="note-item__comments comments">
-      <button
-        v-if="!showingCreateCommentForm"
-        @click="showCreateCommentForm"
-        class="comments__btn btn btn-success"
-      >
-        Create Comment
-      </button>
-      <CommentCreateForm
-        v-else
-        @create-comment="createComment"
-        @cancel="hideCreateCommentForm"
-      />
-      <ul class="comments__list">
-        <li v-if="note.comments.length === 0" class="comments__item-empty">
-          Empty comments
-        </li>
-        <CommentPosition
-          v-for="(comment, index) in note.comments"
-          :data="comment"
-          :key="index"
+      <div class="note-item__comments comments">
+        <button
+          v-if="!showingCreateCommentForm"
+          @click="showCreateCommentForm"
+          class="comments__btn btn btn-success ml-auto mb-2"
+        >
+          Create Comment
+        </button>
+        <CommentCreateForm
+          v-else
+          @create-comment="createComment"
+          @cancel="hideCreateCommentForm"
         />
-      </ul>
+        <ul class="comments__list">
+          <li v-if="note.comments.length === 0" class="comments__item-empty">
+            Empty comments
+          </li>
+          <CommentPosition
+            v-for="(comment, index) in note.comments"
+            :data="comment"
+            :key="index"
+          />
+        </ul>
+      </div>
     </div>
   </div>
 </template>
@@ -79,13 +89,13 @@ export default {
     createComment(comment) {
       this.$store
         .dispatch("notes/createComment", {
-          id: this.data.id,
+          id: this.note.id,
           comment,
           type: this.$store.state.storageType,
           vm: this,
         })
         .then(() => {
-          this.hideModal();
+          this.hideCreateCommentForm();
         });
     },
     deleteNote() {
