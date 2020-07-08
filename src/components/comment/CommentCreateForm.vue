@@ -31,40 +31,6 @@
       </button>
     </div>
   </form>
-  <!--  <b-form @submit.prevent="createComment">-->
-  <!--    <b-form-group label="Автор" label-for="name">-->
-  <!--      <b-form-input-->
-  <!--        id="name"-->
-  <!--        v-model="$v.author.$model"-->
-  <!--        type="text"-->
-  <!--        :state="!authorValidate"-->
-  <!--        aria-describedby="input-required input-fullname"-->
-  <!--        placeholder="Введіть автора"-->
-  <!--      ></b-form-input>-->
-  <!--      <b-form-invalid-feedback v-if="!$v.author.required" id="input-required">-->
-  <!--        Поле не може бути пустим!-->
-  <!--      </b-form-invalid-feedback>-->
-  <!--      <b-form-invalid-feedback v-if="!$v.author.fullName" id="input-fullname">-->
-  <!--        Поле має містити 2 слова, кожне з яких, має починатись з великої літери!-->
-  <!--      </b-form-invalid-feedback>-->
-  <!--    </b-form-group>-->
-  <!--    <b-form-group label="Опис" label-for="content">-->
-  <!--      <b-form-textarea-->
-  <!--        id="content"-->
-  <!--        :state="$v.content.required"-->
-  <!--        v-model="$v.content.$model"-->
-  <!--        aria-describedby="textarea-required"-->
-  <!--        placeholder="Введіть опис"-->
-  <!--      ></b-form-textarea>-->
-  <!--      <b-form-invalid-feedback v-if="!$v.content.required" id="textarea-required">-->
-  <!--        Поле не може бути пустим!-->
-  <!--      </b-form-invalid-feedback>-->
-  <!--    </b-form-group>-->
-  <!--    <div class="actions d-flex">-->
-  <!--      <b-button class="ml-auto" type="submit" variant="primary">Збергти</b-button>-->
-  <!--      <b-button @click="cancel" class="ml-2" variant="danger">Відміна</b-button>-->
-  <!--    </div>-->
-  <!--  </b-form>-->
 </template>
 
 <script>
