@@ -1,9 +1,7 @@
 # notes
 
 ## Environment
-``
-Copy .env.dist file. Rename to .env
-``
+Copy ``.env.dist`` file. Rename to ``.env``.
 
 ## Project setup
 ```
@@ -11,6 +9,16 @@ npm install
 ```
 
 ### Compiles and hot-reloads for development
+Before starting dev-server, run following commands:
+
+```
+npm run prettier:write
+```
+```
+npm run lint:fix
+```
+
+Now run dev-server
 ```
 npm run serve
 ```
