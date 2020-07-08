@@ -49,8 +49,8 @@ export default {
       });
     }
   },
-  async createNote({ state }, options) {
-    console.info(state);
+  // eslint-disable-next-line
+  async createNote({}, options) {
     try {
       if (options.type === 'firebase') {
         await db.collection('notes').doc().set(options.note);
@@ -104,8 +104,8 @@ export default {
       });
     }
   },
-  async deleteNote({ state }, options) {
-    console.info(state);
+  // eslint-disable-next-line
+  async deleteNote({}, options) {
     try {
       if (options.type === 'firebase') {
         await db.collection('notes').doc(options.id).delete();
@@ -127,7 +127,6 @@ export default {
         type: 'success',
       });
     } catch (e) {
-      console.info('error', options);
       toast(options.vm, {
         title: 'Сталась помилка при видалені замітки!',
         type: 'error',

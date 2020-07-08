@@ -14,7 +14,7 @@ Before starting dev-server, run following commands:
 ```
 npm run prettier:write
 ```
-```
+`````
 npm run lint:fix
 ```
 

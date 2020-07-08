@@ -25,7 +25,7 @@ module.exports = {
     },
     workboxPluginMode: 'InjectManifest',
     workboxOptions: {
-      swSrc: '@/registerServiceWorker.js',
+      swSrc: './src/registerServiceWorker.js',
     },
   },
   runtimeCompiler: true,
