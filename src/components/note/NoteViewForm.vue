@@ -1,10 +1,12 @@
 <template>
   <div class="note-item">
     <div class="note-item__container flex flex-col p-4 shadow rounded">
-      <h1 class="note-item__name title mb-4 uppercase text-xl">
+      <h1 class="note-item__name title mb-4 uppercase text-xl truncate">
         {{ note.name }}
       </h1>
-      <p class="note-item__content description mb-2">{{ note.content }}</p>
+      <p class="note-item__content description mb-2 truncate">
+        {{ note.content }}
+      </p>
       <div
         class="note-item__actions actions flex items-center justify-between mb-4"
       >

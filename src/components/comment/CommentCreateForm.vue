@@ -12,16 +12,15 @@
         type="text"
         class="form__input input"
       />
-      <span v-if="!$v.author.required" class="form__message form__message-error"
+      <span
+        v-if="!$v.author.required && $v.author.$error"
+        class="form__message form__message-error"
         >Field must be filled!</span
       >
-      <span v-if="!$v.author.fullName" class="form__message form__message-error"
-        >Field must contain only two words and starts with upper letter!</span
-      >
       <span
-        v-if="$v.author.required && $v.author.fullName"
-        class="form__message form__message-success"
-        >All good!</span
+        v-if="!$v.author.fullName && $v.author.$error"
+        class="form__message form__message-error"
+        >Field must contain only two words and starts with upper letter!</span
       >
     </div>
     <div class="form__wrapper">
@@ -32,11 +31,10 @@
         class="form__textarea textarea"
       ></textarea>
       <span
-        v-if="!$v.content.required"
+        v-if="!$v.content.required && $v.content.$error"
         class="form__message form__message-error"
         >Field must be filled!</span
       >
-      <span v-else class="form__message form__message-success">All good!</span>
     </div>
     <div class="form__actions actions flex items-center justify-end">
       <button

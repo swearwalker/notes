@@ -1,10 +1,12 @@
 <template>
   <li class="note-item w-full md:w-1/2 lg:w-1/3 xl:w-1/4 px-2 mb-4">
     <div class="note-item__container flex flex-col shadow bg-white rounded p-4">
-      <h2 class="note-item__name title mb-4 uppercase text-xl">
+      <h2 class="note-item__name title mb-4 uppercase text-xl truncate">
         {{ data.name }}
       </h2>
-      <p class="note-item__content description mb-2">{{ data.content }}</p>
+      <p class="note-item__content description mb-2 truncate">
+        {{ data.content }}
+      </p>
       <div class="note-item__actions actions flex items-center justify-between">
         <div class="actions__badge badge badge-info">
           <i class="fas fa-comments actions__icon"></i>

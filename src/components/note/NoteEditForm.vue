@@ -10,11 +10,10 @@
         class="form__input input"
       />
       <span
-        v-if="!$v.note.name.required"
+        v-if="!$v.note.name.required && $v.note.name.$error"
         class="form__message form__message-error"
         >Field must be filled!</span
       >
-      <span v-else class="form__message form__message-success">All good!</span>
     </div>
     <div class="form__wrapper">
       <label for="content" class="form__label subtitle mb-1">Content</label>
@@ -24,11 +23,10 @@
         class="form__textarea textarea"
       ></textarea>
       <span
-        v-if="!$v.note.content.required"
+        v-if="!$v.note.content.required && $v.note.content.$error"
         class="form__message form__message-error"
         >Field must be filled!</span
       >
-      <span v-else class="form__message form__message-success">All good!</span>
     </div>
     <div class="form__actions actions w-full flex items-center justify-end">
       <button
