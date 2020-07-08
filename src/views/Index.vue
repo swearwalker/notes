@@ -1,7 +1,7 @@
 <template>
   <main id="main">
     <div class="container">
-      <ul class="list">
+      <ul class="list flex flex-wrap">
         <NotePosition v-for="note in notes" :key="note.id" :data="note" />
       </ul>
     </div>

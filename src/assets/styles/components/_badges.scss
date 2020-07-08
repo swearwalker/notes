@@ -1,0 +1,15 @@
+.badge {
+  @apply px-2 py-1 flex items-center justify-center text-white rounded;
+}
+
+.badge.badge-success {
+  @apply text-white bg-green-500;
+}
+
+.badge.badge-info {
+  @apply text-white bg-blue-500;
+}
+
+.badge.badge-danger {
+  @apply text-white bg-red-500;
+}

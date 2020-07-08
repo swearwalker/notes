@@ -1,0 +1,8 @@
+.input {
+  @apply px-2 py-1 font-medium text-sm rounded shadow mb-1;
+}
+
+.textarea {
+  min-height: 100px;
+  @apply px-2 py-1 font-medium text-sm rounded shadow mb-1;
+}
