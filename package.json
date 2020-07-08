@@ -6,7 +6,10 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint --ext .js,.vue,test --ignore-path .gitignore ",
+    "lint:fix": "vue-cli-service lint --fix --ext .js,.vue,test  --ignore-path .gitignore .",
+    "prettier": "prettier -c \"./**/*.{css,scss,json}\" --ignore-path .gitignore",
+    "prettier:write": "npm run prettier -- --write"
   },
   "dependencies": {
     "core-js": "^3.6.5",
@@ -45,32 +48,6 @@
     "tailwindcss": "^1.4.6",
     "vue-template-compiler": "^2.6.11"
   },
-  "eslintConfig": {
-    "root": true,
-    "env": {
-      "node": true
-    },
-    "extends": [
-      "plugin:vue/essential",
-      "eslint:recommended",
-      "@vue/prettier"
-    ],
-    "parserOptions": {
-      "parser": "babel-eslint"
-    },
-    "rules": {},
-    "overrides": [
-      {
-        "files": [
-          "**/__tests__/*.{j,t}s?(x)",
-          "**/tests/unit/**/*.spec.{j,t}s?(x)"
-        ],
-        "env": {
-          "jest": true
-        }
-      }
-    ]
-  },
   "browserslist": [
     "> 1%",
     "last 2 versions",
@@ -92,7 +69,8 @@
   },
   "lint-staged": {
     "*.{js,jsx,vue}": [
-      "vue-cli-service lint"
+      "npm run prettier:write",
+      "npm run lint:fix"
     ]
   }
 }

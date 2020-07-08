@@ -7,17 +7,12 @@
       <p class="note-item__content description mb-2 truncate">
         {{ note.content }}
       </p>
-      <div
-        class="note-item__actions actions flex items-center justify-between mb-4"
-      >
+      <div class="note-item__actions actions flex items-center justify-between mb-4">
         <div class="actions__badge badge badge-info">
           <i class="fas fa-comments actions__icon"></i>
           <span class="actions__quantity ml-2">{{ note.comments.length }}</span>
         </div>
-        <router-link
-          :to="editLink"
-          class="actions__btn btn btn-success ml-auto"
-        >
+        <router-link :to="editLink" class="actions__btn btn btn-success ml-auto">
           <i class="fas fa-pen actions__icon"></i>
         </router-link>
         <button @click="deleteNote" class="actions__btn btn btn-danger ml-2">
@@ -32,20 +27,12 @@
         >
           Create Comment
         </button>
-        <CommentCreateForm
-          v-else
-          @create-comment="createComment"
-          @cancel="hideCreateCommentForm"
-        />
+        <CommentCreateForm v-else @create-comment="createComment" @cancel="hideCreateCommentForm" />
         <ul class="comments__list">
           <li v-if="note.comments.length === 0" class="comments__item-empty">
             Empty comments
           </li>
-          <CommentPosition
-            v-for="(comment, index) in note.comments"
-            :data="comment"
-            :key="index"
-          />
+          <CommentPosition v-for="(comment, index) in note.comments" :data="comment" :key="index" />
         </ul>
       </div>
     </div>
@@ -53,10 +40,10 @@
 </template>
 
 <script>
-import CommentCreateForm from "@/components/comment/CommentCreateForm";
-import CommentPosition from "@/components/comment/CommentPosition";
+import CommentCreateForm from '@/components/comment/CommentCreateForm';
+import CommentPosition from '@/components/comment/CommentPosition';
 export default {
-  name: "NoteViewForm",
+  name: 'NoteViewForm',
   components: {
     CommentCreateForm,
     CommentPosition,
@@ -72,15 +59,15 @@ export default {
         return this.$store.state.notes.note;
       } else {
         return {
-          name: "",
-          content: "",
+          name: '',
+          content: '',
           comments: [],
         };
       }
     },
     editLink() {
       return {
-        name: "edit",
+        name: 'edit',
         params: {
           id: this.$route.params.id,
         },
@@ -90,7 +77,7 @@ export default {
   methods: {
     createComment(comment) {
       this.$store
-        .dispatch("notes/createComment", {
+        .dispatch('notes/createComment', {
           id: this.note.id,
           comment,
           type: this.$store.state.storageType,
@@ -102,13 +89,13 @@ export default {
     },
     deleteNote() {
       this.$store
-        .dispatch("notes/deleteNote", {
+        .dispatch('notes/deleteNote', {
           vm: this,
           id: this.data.id,
           type: this.$store.state.storageType,
         })
         .then(() => {
-          this.$router.push("/");
+          this.$router.push('/');
         });
     },
     showCreateCommentForm() {

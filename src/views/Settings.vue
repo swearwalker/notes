@@ -6,9 +6,7 @@
       </h1>
       <button
         @click="changeStorageType('localstorage')"
-        :class="[
-          $store.state.storageType === 'localstorage' ? '' : 'opacity-50',
-        ]"
+        :class="[$store.state.storageType === 'localstorage' ? '' : 'opacity-50']"
         class="btn btn-success"
       >
         Local Storage
@@ -26,7 +24,7 @@
 
 <script>
 export default {
-  name: "Settings",
+  name: 'Settings',
   data() {
     return {};
   },
@@ -37,7 +35,7 @@ export default {
   },
   methods: {
     changeStorageType(selected) {
-      this.$store.commit("changeStorageType", selected);
+      this.$store.commit('changeStorageType', selected);
     },
   },
 };

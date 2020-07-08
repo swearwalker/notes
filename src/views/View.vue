@@ -7,9 +7,9 @@
 </template>
 
 <script>
-import NoteViewForm from "@/components/note/NoteViewForm";
+import NoteViewForm from '@/components/note/NoteViewForm';
 export default {
-  name: "View",
+  name: 'View',
   components: {
     NoteViewForm,
   },
@@ -17,7 +17,7 @@ export default {
     return {};
   },
   mounted() {
-    this.$store.dispatch("notes/getNote", {
+    this.$store.dispatch('notes/getNote', {
       id: this.$route.params.id,
       type: this.$store.state.storageType,
     });

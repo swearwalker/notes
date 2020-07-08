@@ -6,15 +6,13 @@
     <p class="comment-item__content description mb-1 truncate">
       {{ data.content }}
     </p>
-    <span class="comment-item__date text-sm opacity-50">{{
-      data.created_at | moment("LLL")
-    }}</span>
+    <span class="comment-item__date text-sm opacity-50">{{ data.created_at | moment('LLL') }}</span>
   </li>
 </template>
 
 <script>
 export default {
-  name: "CommentPosition",
+  name: 'CommentPosition',
   props: {
     data: {
       type: Object,

@@ -1,41 +1,41 @@
-import Vue from "vue";
-import VueRouter from "vue-router";
-import Index from "@/views/Index.vue";
-import CreateNote from "@/views/Create";
-import Settings from "@/views/Settings";
+import Vue from 'vue';
+import VueRouter from 'vue-router';
+import Index from '@/views/Index.vue';
+import CreateNote from '@/views/Create';
+import Settings from '@/views/Settings';
 
 Vue.use(VueRouter);
 
 const routes = [
   {
-    path: "/",
-    name: "index",
+    path: '/',
+    name: 'index',
     component: Index,
   },
   {
-    path: "/create",
-    name: "create",
+    path: '/create',
+    name: 'create',
     component: CreateNote,
   },
   {
-    path: "/settings",
-    name: "settings",
+    path: '/settings',
+    name: 'settings',
     component: Settings,
   },
   {
-    path: "/edit/:id",
-    name: "edit",
-    component: () => import("@/views/Edit"),
+    path: '/edit/:id',
+    name: 'edit',
+    component: () => import('@/views/Edit'),
   },
   {
-    path: "/view/:id",
-    name: "view",
-    component: () => import("@/views/View"),
+    path: '/view/:id',
+    name: 'view',
+    component: () => import('@/views/View'),
   },
 ];
 
 const router = new VueRouter({
-  mode: "history",
+  mode: 'history',
   base: process.env.VUE_APP_BASE_URL,
   routes,
 });

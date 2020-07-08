@@ -7,9 +7,9 @@
 </template>
 
 <script>
-import NoteEditForm from "@/components/note/NoteEditForm";
+import NoteEditForm from '@/components/note/NoteEditForm';
 export default {
-  name: "Edit",
+  name: 'Edit',
   components: {
     NoteEditForm,
   },
@@ -17,7 +17,7 @@ export default {
     return {};
   },
   mounted() {
-    this.$store.dispatch("notes/getNote", {
+    this.$store.dispatch('notes/getNote', {
       id: this.$route.params.id,
       type: this.$store.state.storageType,
     });

@@ -14,18 +14,18 @@ module.exports = {
   //   }
   // },
   pwa: {
-    name: "My App",
-    themeColor: "#4DBA87",
-    msTileColor: "#000000",
-    appleMobileWebAppCapable: "yes",
-    appleMobileWebAppStatusBarStyle: "black",
+    name: 'My App',
+    themeColor: '#4DBA87',
+    msTileColor: '#000000',
+    appleMobileWebAppCapable: 'yes',
+    appleMobileWebAppStatusBarStyle: 'black',
     manifestOptions: {
-      display: "landscape",
-      background_color: "#42B883",
+      display: 'landscape',
+      background_color: '#42B883',
     },
-    workboxPluginMode: "InjectManifest",
+    workboxPluginMode: 'InjectManifest',
     workboxOptions: {
-      swSrc: "@/registerServiceWorker.js",
+      swSrc: '@/registerServiceWorker.js',
     },
   },
   runtimeCompiler: true,

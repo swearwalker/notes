@@ -1,38 +1,19 @@
 <template>
-  <form
-    @submit.prevent="createComment"
-    id="form"
-    class="w-full shadow rounded p-4 mb-2"
-  >
+  <form @submit.prevent="createComment" id="form" class="w-full shadow rounded p-4 mb-2">
     <div class="form__wrapper">
       <label for="name" class="form__label subtitle mb-1">Author</label>
-      <input
-        v-model="$v.author.$model"
-        id="name"
-        type="text"
-        class="form__input input"
-      />
-      <span
-        v-if="!$v.author.required && $v.author.$error"
-        class="form__message form__message-error"
+      <input v-model="$v.author.$model" id="name" type="text" class="form__input input" />
+      <span v-if="!$v.author.required && $v.author.$error" class="form__message form__message-error"
         >Field must be filled!</span
       >
-      <span
-        v-if="!$v.author.fullName && $v.author.$error"
-        class="form__message form__message-error"
+      <span v-if="!$v.author.fullName && $v.author.$error" class="form__message form__message-error"
         >Field must contain only two words and starts with upper letter!</span
       >
     </div>
     <div class="form__wrapper">
       <label for="content" class="form__label subtitle mb-1">Content</label>
-      <textarea
-        v-model="$v.content.$model"
-        id="content"
-        class="form__textarea textarea"
-      ></textarea>
-      <span
-        v-if="!$v.content.required && $v.content.$error"
-        class="form__message form__message-error"
+      <textarea v-model="$v.content.$model" id="content" class="form__textarea textarea"></textarea>
+      <span v-if="!$v.content.required && $v.content.$error" class="form__message form__message-error"
         >Field must be filled!</span
       >
     </div>
@@ -45,10 +26,7 @@
       >
         Create
       </button>
-      <button
-        @click.prevent="resetForm"
-        class="actions__btn btn btn-danger ml-2"
-      >
+      <button @click.prevent="resetForm" class="actions__btn btn btn-danger ml-2">
         Reset
       </button>
     </div>
@@ -90,17 +68,17 @@
 </template>
 
 <script>
-import { required, helpers } from "vuelidate/lib/validators";
+import { required, helpers } from 'vuelidate/lib/validators';
 const fullName = helpers.regex(
-  "fullName",
-  /^([A-ZА-ЯІЇЄЮ][a-zа-яіїєю]+(?=\s[A-ZА-ЯІЇЄЮ])(?:\s[A-ZА-ЯІЇЄЮ][a-zа-яіїєю]+)+)$/
+  'fullName',
+  /^([A-ZА-ЯІЇЄЮ][a-zа-яіїєю]+(?=\s[A-ZА-ЯІЇЄЮ])(?:\s[A-ZА-ЯІЇЄЮ][a-zа-яіїєю]+)+)$/,
 );
 export default {
-  name: "CommentCreateForm",
+  name: 'CommentCreateForm',
   data() {
     return {
-      author: "",
-      content: "",
+      author: '',
+      content: '',
     };
   },
   computed: {
@@ -121,7 +99,7 @@ export default {
     createComment() {
       this.$v.$touch();
       if (!this.$v.$invalid) {
-        this.$emit("create-comment", {
+        this.$emit('create-comment', {
           author: this.author,
           content: this.content,
           created_at: Date.now(),
@@ -129,11 +107,11 @@ export default {
       }
     },
     cancel() {
-      this.$emit("cancel");
+      this.$emit('cancel');
     },
     resetForm() {
-      this.author = "";
-      this.content = "";
+      this.author = '';
+      this.content = '';
     },
   },
 };

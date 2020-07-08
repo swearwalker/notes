@@ -3,28 +3,15 @@
     <h1 class="form__title title uppercase text-2xl mb-4">Edit Note</h1>
     <div class="form__wrapper">
       <label for="name" class="form__label subtitle mb-1">Name</label>
-      <input
-        v-model="$v.note.name.$model"
-        id="name"
-        type="text"
-        class="form__input input"
-      />
-      <span
-        v-if="!$v.note.name.required && $v.note.name.$error"
-        class="form__message form__message-error"
+      <input v-model="$v.note.name.$model" id="name" type="text" class="form__input input" />
+      <span v-if="!$v.note.name.required && $v.note.name.$error" class="form__message form__message-error"
         >Field must be filled!</span
       >
     </div>
     <div class="form__wrapper">
       <label for="content" class="form__label subtitle mb-1">Content</label>
-      <textarea
-        v-model="$v.note.content.$model"
-        id="content"
-        class="form__textarea textarea"
-      ></textarea>
-      <span
-        v-if="!$v.note.content.required && $v.note.content.$error"
-        class="form__message form__message-error"
+      <textarea v-model="$v.note.content.$model" id="content" class="form__textarea textarea"></textarea>
+      <span v-if="!$v.note.content.required && $v.note.content.$error" class="form__message form__message-error"
         >Field must be filled!</span
       >
     </div>
@@ -37,10 +24,7 @@
       >
         Save
       </button>
-      <button
-        @click.prevent="resetForm"
-        class="actions__btn btn btn-danger ml-2"
-      >
+      <button @click.prevent="resetForm" class="actions__btn btn btn-danger ml-2">
         Reset
       </button>
     </div>
@@ -48,9 +32,9 @@
 </template>
 
 <script>
-import { required } from "vuelidate/lib/validators";
+import { required } from 'vuelidate/lib/validators';
 export default {
-  name: "NoteEditForm",
+  name: 'NoteEditForm',
   data() {
     return {};
   },
@@ -72,18 +56,18 @@ export default {
   methods: {
     saveNote() {
       this.$store
-        .dispatch("notes/updateNote", {
+        .dispatch('notes/updateNote', {
           type: this.$store.state.storageType,
           note: this.note,
           vm: this,
         })
         .then(() => {
-          this.$router.push("/");
+          this.$router.push('/');
         });
     },
     resetForm() {
-      this.note.name = "";
-      this.note.content = "";
+      this.note.name = '';
+      this.note.content = '';
     },
   },
 };

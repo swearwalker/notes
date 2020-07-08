@@ -1,34 +1,17 @@
 <template>
-  <form
-    @submit.prevent="createNote"
-    id="form"
-    class="w-full shadow rounded p-4"
-  >
+  <form @submit.prevent="createNote" id="form" class="w-full shadow rounded p-4">
     <h1 class="form__title title uppercase text-2xl mb-4">Create Note</h1>
     <div class="form__wrapper">
       <label for="name" class="form__label subtitle mb-1">Name</label>
-      <input
-        v-model="$v.name.$model"
-        id="name"
-        type="text"
-        class="form__input input"
-      />
-      <span
-        v-if="!$v.name.required && $v.name.$error"
-        class="form__message form__message-error"
+      <input v-model="$v.name.$model" id="name" type="text" class="form__input input" />
+      <span v-if="!$v.name.required && $v.name.$error" class="form__message form__message-error"
         >Field must be filled!</span
       >
     </div>
     <div class="form__wrapper">
       <label for="content" class="form__label subtitle mb-1">Content</label>
-      <textarea
-        v-model="$v.content.$model"
-        id="content"
-        class="form__textarea textarea"
-      ></textarea>
-      <span
-        v-if="!$v.content.required && $v.content.$error"
-        class="form__message form__message-error"
+      <textarea v-model="$v.content.$model" id="content" class="form__textarea textarea"></textarea>
+      <span v-if="!$v.content.required && $v.content.$error" class="form__message form__message-error"
         >Field must be filled!</span
       >
     </div>
@@ -49,13 +32,13 @@
 </template>
 
 <script>
-import { required } from "vuelidate/lib/validators";
+import { required } from 'vuelidate/lib/validators';
 export default {
-  name: "NoteCreateForm",
+  name: 'NoteCreateForm',
   data() {
     return {
-      name: "",
-      content: "",
+      name: '',
+      content: '',
     };
   },
   validations: {
@@ -71,7 +54,7 @@ export default {
       this.$v.$touch();
       if (!this.$v.$invalid) {
         this.$store
-          .dispatch("notes/createNote", {
+          .dispatch('notes/createNote', {
             type: this.$store.state.storageType,
             note: {
               name: this.name,
@@ -81,13 +64,13 @@ export default {
             vm: this,
           })
           .then(() => {
-            this.$router.push("/");
+            this.$router.push('/');
           });
       }
     },
     resetForm() {
-      this.name = "";
-      this.content = "";
+      this.name = '';
+      this.content = '';
     },
   },
 };

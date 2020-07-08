@@ -7,9 +7,9 @@
 </template>
 
 <script>
-import NoteCreateForm from "@/components/note/NoteCreateForm";
+import NoteCreateForm from '@/components/note/NoteCreateForm';
 export default {
-  name: "Create",
+  name: 'Create',
   components: {
     NoteCreateForm,
   },

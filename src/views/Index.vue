@@ -9,9 +9,9 @@
 </template>
 
 <script>
-import NotePosition from "@/components/note/NotePosition";
+import NotePosition from '@/components/note/NotePosition';
 export default {
-  name: "Index",
+  name: 'Index',
   components: {
     NotePosition,
   },
@@ -21,7 +21,7 @@ export default {
   computed: {
     createNote() {
       return {
-        name: "create-note",
+        name: 'create-note',
       };
     },
     notes() {
@@ -29,7 +29,7 @@ export default {
     },
   },
   mounted() {
-    this.$store.dispatch("notes/getNotes", {
+    this.$store.dispatch('notes/getNotes', {
       vm: this,
       type: this.$store.state.storageType,
     });

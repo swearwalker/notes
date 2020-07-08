@@ -28,7 +28,7 @@
 
 <script>
 export default {
-  name: "NotePosition",
+  name: 'NotePosition',
   props: {
     data: {
       type: Object,
@@ -43,7 +43,7 @@ export default {
   computed: {
     viewLink() {
       return {
-        name: "view",
+        name: 'view',
         params: {
           id: this.data.id,
         },
@@ -51,7 +51,7 @@ export default {
     },
     editLink() {
       return {
-        name: "edit",
+        name: 'edit',
         params: {
           id: this.data.id,
         },
@@ -61,13 +61,13 @@ export default {
   methods: {
     deleteNote() {
       this.$store
-        .dispatch("notes/deleteNote", {
+        .dispatch('notes/deleteNote', {
           vm: this,
           id: this.data.id,
           type: this.$store.state.storageType,
         })
         .then(() => {
-          this.$store.dispatch("notes/getNotes", {
+          this.$store.dispatch('notes/getNotes', {
             type: this.$store.state.storageType,
           });
         });
