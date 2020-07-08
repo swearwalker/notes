@@ -1,5 +1,10 @@
 # notes
 
+## Environment
+``
+Copy .env.dist file. Rename to .env
+``
+
 ## Project setup
 ```
 npm install
